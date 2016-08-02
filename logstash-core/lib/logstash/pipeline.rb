@@ -46,7 +46,7 @@ module LogStash; class Pipeline
   ]
 
   def initialize(config_str, settings = LogStash::SETTINGS, namespaced_metric = nil)
-    @logger = self.logger
+    @logger = self.class.logger
     @config_str = config_str
     @config_hash = Digest::SHA1.hexdigest(@config_str)
     # Every time #plugin is invoked this is incremented to give each plugin
